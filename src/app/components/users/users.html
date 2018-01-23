@@ -1,0 +1,62 @@
+<div class="col-md-12">
+  <uib-tabset active="active">
+    <uib-tab index="0" heading="Users">
+      <div class="pull-left">
+        <button 
+          class="btn btn-default btn-sm" 
+          ng-disabled="$ctrl.loggedUser.role != '1'" 
+          ng-click="$ctrl.newUser()"
+        >
+          Create new
+        </button>
+      </div>
+
+      <div class="clearfix"></div>
+      <br />
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Users
+        </div>
+
+        <div class="panel-body">
+          <table class="table table-bordersed table-striped">
+            <tr>
+              <th width="45%">Username</th>
+              <th>Permission</th>
+              <th><span class="pull-right">Created at</span></th>
+            </tr>
+            <tr 
+              ng-repeat="x in $ctrl.users"
+              ng-click="$ctrl.onSelected(x)"
+            >
+              <td ng-bind="x.username | firstLetterToCapital"></td>
+              <td>
+                <span ng-if="x.role == 1">
+                  Admin
+                </span>
+                <span ng-if="x.role == 2">
+                  Read / Write
+                </span>
+                <span ng-if="x.role == 3">
+                  Read only
+                </span>
+              </td>
+              <td align="right">
+                {{ x.created_at }}
+              </td>
+            </tr>
+            <tr ng-if="!$ctrl.users">
+              <td colspan="4">Loading...</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+    </uib-tab>
+
+    <uib-tab index="1" heading="Profile">
+      <user-profile></user-profile>
+    </uib-tab>
+  </uib-tabset>
+</div>

@@ -1,0 +1,97 @@
+.navbar {
+    background-color: #24292E !important;
+}
+
+.navbar-brand i {
+    color: #FFFFFF;
+    font-size: 33px;
+    margin-top: -7px;
+}
+
+.navbar-form input {
+    background-color: #3F4448 !important;
+    border: 1px solid #3F4448 !important;
+    width: 300px !important;
+    height: 29px !important;
+    margin-top: 2px !important;
+    border-radius: 2px !important;
+    font-size: 12px;
+    outline: none !important;
+}
+
+.navbar-form input:hover {
+    outline: none !important;
+}
+
+.navbar .container {
+}
+
+.nav > li a {
+    color: #C8C9CB !important;
+}
+
+.nav > li a:hover {
+    color: #FFFFFF !important;
+}
+
+.container {
+    padding: 0 100px !important;
+}
+
+// ui bootstrap
+.nav-tabs > li {
+    margin-right: 5px !important;
+}
+.nav-tabs > li > a {
+    padding: 7px 24px !important;
+    border-radius: 3px !important;
+    color: #4e4e4e !important;
+}
+
+.nav-tabs > li > a:hover {
+    color: #000000 !important;
+}
+
+.tab-pane {
+    padding: 20px 0px;
+}
+
+.footer {
+    color: #58606A !important;
+    font-size: 11px;
+}
+
+.dash_content {
+    position: absolute;
+    margin-top: 100px;
+}
+
+.dash_content button {
+    font-size: 13px;
+}
+
+.dash_content ul.dropdown-menu {
+    width: 250px !important;
+    border-radius: 2px;
+    font-size: 6px !important;
+}
+
+.dash_menu {
+    margin-top: 72px;
+}
+.dash_menu {
+    margin-bottom: 20px;
+}
+
+.dash_menu ul {
+    width: 250px !important;
+}
+.alert_box {
+    position: relative;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.memo {
+    color: red;
+}

@@ -1,0 +1,71 @@
+.point_menu {
+    padding: 11px;
+    border-left: 6px solid #EEEEEE;
+    margin-bottom: 3px;
+}
+
+.point_menu_active {
+    border-left: 6px solid #538CEE;
+}
+
+.point_menu md-checkbox {
+    float: left;
+    margin: 0 !important;
+}
+
+.point_menu h2 {
+    margin-top: 4px;
+}
+
+.point_content {
+    padding-top: 15px;
+}
+
+.point_content_active {
+    display: block;
+}
+
+.point_content_inactive {
+    display: none;
+}
+
+.point_links {
+    padding: 0 3px;
+    color: #848AE1;
+}
+
+.point_links i {
+    margin-right: 15px;
+}
+
+.point_links img {
+    margin-right: 3.5px;
+}
+
+ul.point_lists {
+    padding-left: 31px;
+    margin-top: 7px;
+}
+
+ul.point_lists ol {
+    padding: 2px 0;
+    margin: 3px 0;
+    font-size: 12px;
+    cursor: default;
+}
+
+ul.point_lists ol:hover {
+    background-color: #F1F1F1;
+}
+
+ul.point_lists ol i {
+    font-size: 19px;
+    margin-right: 6.5px;
+    margin-left: 6px;
+    color: #0288D1;
+}
+
+ul.point_lists ol span {
+    position: relative;
+    top: -2px !important;
+}

@@ -1,0 +1,39 @@
+<map-marker 
+  ng-repeat="device in $ctrl.devices"
+  id="device.id" 
+  lat="device.latitude" 
+  lng="device.longitude"
+  type="device.device_type"
+  >
+  <div ng-non-bindable ng-cloak>
+    <div class="device_marker">
+      <h2 ng-if="!$ctrl.edit">{{ device.name }}</h2>
+      <input ng-if="$ctrl.edit" type="text" ng-model="device.name" />
+      <table>
+        <tr>
+          <td width="75">In Port:</td>
+          <td>
+            <span ng-if="device.in_port == 0">Available</span>
+            <span ng-if="device.in_port == 1">N/A</span>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>Used Ports: </td>
+          <td>{{ device.used_port }}</td>
+        </tr>
+
+        <tr>
+          <td>Total Ports: </td><td>{{ device.total_port }}</td>
+        </tr>
+      </table>
+      <!-- <br /><br /><br /><br /><br /><br /><br /> -->
+      <div class="device_marker_foot">
+        <i class="fa fa-map-marker"></i> {{ device.latitude }}, {{ device.longitude }}
+        <span class="pull-right">
+          <device-links device="device" edit="$ctrl.edit" on-edit="$ctrl.onEdit($event)"></device-links>
+        </span>
+      </div>
+    </div>
+  </div>
+</map-marker>

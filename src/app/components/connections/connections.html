@@ -1,0 +1,41 @@
+<div>
+  <connection-poly
+    ng-repeat="conxn in $ctrl.connections"
+    plot="conxn.plot"
+  >
+    <div ng-non-bindale ng-cloak>
+      <div class="connection-info">
+        <span class="conxn-title">Connection</span>
+        <div class="clearfix"></div>
+        <table>
+          <tr>
+            <td width="150" height="25" colspan="2">End one</td>
+            <td width="150" colspan="2">End two</td>
+          </tr>
+
+          <tr>
+            <td height="20">Point one: </td><td> {{ conxn.point_one_id }} </td>
+            <td>Point two: </td><td> {{ conxn.point_two_id }} </td>
+          </tr>
+
+          <tr>
+            <td height="20">Device: </td><td> {{ conxn.point_one_device_name }} </td>
+            <td>Device: </td><td> {{ conxn.point_two_device_name }} </td>
+          </tr>
+          <tr>
+            <td>Cable length:</td>
+            <td>{{ conxn.distance }} m</td>
+          </tr>
+        </table>
+        <br />
+        <a 
+          href="" 
+          ng-click="$ctrl.deleteConnection(conxn.id)"
+          style="font-size: 17px" 
+        >
+          <i class="fa fa-trash"></i>
+        </a>
+      </div>
+    </div>
+  </connection-poly>
+</div>

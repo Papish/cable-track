@@ -1,0 +1,40 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-sm-6 col-md-offset-4">
+			<div class="login_form">
+				<div class="alert alert-info" ng-if="$ctrl.error == true">
+				  <strong>Error!</strong> The user credential donot match
+				</div>
+
+				<div class="panel panel-default">
+					<div class="panel-heading">Login</div>
+
+					<div class="panel-body">
+						<form name="login" method="post" novalidate ng-submit="$ctrl.validateAuth()">
+							<div class="form-group">
+								<label>Username</label>
+								<input type="text" class="form-control" required ng-model="$ctrl.user.username">
+							</div>
+
+							<div class="form-group">
+								<label>Password</label>
+								<input type="password" class="form-control" required ng-model="$ctrl.user.password">
+							</div>
+
+							<!-- <div class="form-group">
+								<label class="checkbox-inline"><input type="checkbox" class="login_checkbox">Remember me</label>
+							</div> -->
+
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary btn-block btn_login" ng-disabled="login.$invalid">Login</button>
+							</div>
+							
+							<a href="#">Forgot password?</a>
+							<br /><br />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

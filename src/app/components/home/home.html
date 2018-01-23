@@ -1,0 +1,156 @@
+<div class="load-bg" ng-hide="$ctrl.foo">
+  <div class="lds-css">
+    <div style="width:100%;height:100%" class="lds-flickr">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="loader_msg">Please enable javascript and cookies in the browser.</div>
+    <div class="loader_msg2">Please wait for a while the system is checking for some information.</div>
+    <div class="loaders">
+      <span ng-if="$ctrl.loader === 1">Verifying connection to database server ...</span>
+      <span ng-if="$ctrl.loader === 2">Checking for cookies and session ...</span>
+      <span ng-if="$ctrl.loader === 3">Connecting to google map v3 api ...</span>
+      <span ng-if="$ctrl.loader === 4">All status check complete ... <i class="fa fa-spinner fa-spin"></i></span>
+    </div>
+  </div>
+</div>
+
+<style type="text/css">
+  @keyframes lds-flickr-opacity {
+    0% {
+      -webkit-transform: translate(0 0);
+      transform: translate(0 0);
+      opacity: 1;
+    }
+    49.99% {
+      opacity: 1;
+      -webkit-transform: translate(80px, 0);
+      transform: translate(80px, 0);
+    }
+    50% {
+      opacity: 0;
+      -webkit-transform: translate(80px, 0);
+      transform: translate(80px, 0);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+  }
+  @-webkit-keyframes lds-flickr-opacity {
+    0% {
+      -webkit-transform: translate(0 0);
+      transform: translate(0 0);
+      opacity: 1;
+    }
+    49.99% {
+      opacity: 1;
+      -webkit-transform: translate(80px, 0);
+      transform: translate(80px, 0);
+    }
+    50% {
+      opacity: 0;
+      -webkit-transform: translate(80px, 0);
+      transform: translate(80px, 0);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+  }
+  @keyframes lds-flickr {
+    0% {
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+    50% {
+      -webkit-transform: translate(80px, 0);
+      transform: translate(80px, 0);
+    }
+    100% {
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+  }
+  @-webkit-keyframes lds-flickr {
+    0% {
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+    50% {
+      -webkit-transform: translate(80px, 0);
+      transform: translate(80px, 0);
+    }
+    100% {
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+  }
+  .load-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    z-index: 99999;    
+  }
+  .lds-css {
+  }
+  .lds-flickr {
+    position: relative;
+  }
+  .lds-flickr div {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    top: 80vh;
+    left: 47.8%;
+  }
+  .lds-flickr div:nth-child(1) {
+    background: #fcb711;
+    -webkit-animation: lds-flickr 1.4s linear infinite;
+    animation: lds-flickr 1.4s linear infinite;
+    -webkit-animation-delay: -0.7s;
+    animation-delay: -0.7s;
+  }
+  .lds-flickr div:nth-child(2) {
+    background: #f37021;
+    -webkit-animation: lds-flickr 1.4s linear infinite;
+    animation: lds-flickr 1.4s linear infinite;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+  }
+  .lds-flickr div:nth-child(3) {
+    background: #fcb711;
+    -webkit-animation: lds-flickr-opacity 1.4s linear infinite;
+    animation: lds-flickr-opacity 1.4s linear infinite;
+    -webkit-animation-delay: -0.7s;
+    animation-delay: -0.7s;
+  }
+  .lds-flickr {
+    width: 100% !important;
+    height: 100% !important;
+    -webkit-transform: translate(-53.5px, -53.5px) scale(0.535) translate(53.5px, 53.5px);
+    transform: translate(-53.5px, -53.5px) scale(0.535) translate(53.5px, 53.5px);
+  }
+  .loader_msg {
+    text-align: center;
+    font-size: 14px;
+    color: #4e4e4e;
+    margin-top: 50vh;
+  }
+  .loader_msg2 {
+    text-align: center;
+    font-size: 16px;
+    color: #4e4e4e;
+    margin: 5px;
+  }
+  .loaders {
+    text-align: center;
+    margin-top: 10px;
+  }
+</style>

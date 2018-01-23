@@ -1,0 +1,408 @@
+.map-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+}
+// toastr css
+.toast-msg {
+    // padding-top: 10px !important;
+    // padding-bottom: 10px !important;
+}
+
+div.toast-title {
+    // margin-bottom: 5px;
+    color: #000000 !important;
+    margin-bottom: 8px;
+}
+
+.toast {
+    // padding: 0px !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+}
+
+#toast-container .toast.toast-info {
+    background-image: none !important;
+    background-color: #FFFFFF !important;
+    padding: 13px 16px 18px 16px !important;
+    color: #4e4e4e;
+    box-shadow: none;
+    border: 1px solid #ccc;
+    opacity: 1;
+    outline: none;
+}
+
+#toast-container .toast.toast-info .toast-title {
+    color: #2E2E2E;
+    font-weight: normal !important;
+}
+
+#toast-container .toast.toast-info .toast-close-button {
+    color: #4e4e4e !important;
+}
+
+.toast-body {
+    color: #4e4e4e;
+}
+
+.toast-footer {
+    margin-top: 16px;
+    color: #2E2E2E;
+}
+
+.toast-bottom-center {
+    margin-bottom: 0px !important;
+}
+
+// Map search
+.search-map {
+    position: fixed;
+    z-index: 0;
+    top: 9px;
+    left: 353px;
+    background-color: #FFFFFF;
+    width: 450px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(110,102,110,1);
+    -moz-box-shadow: 0px 1px 2px 0px rgba(110,102,110,1);
+    box-shadow: 0px 1px 2px 0px rgba(110,102,110,1);
+}
+
+.search-map input {
+    width: 85%;
+    padding: 8px 7px;
+    border: none;
+    border-radius: 2px;
+    outline: none;
+}
+
+.search-map input[type="text"]::-webkit-inner-spin-button, 
+    input[type="text"]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+.search-map button {
+    width: 15%;
+    border: none;
+    background-color: #4C8BF1;
+    padding: 8px 7px;
+    color: #FFFFFF;
+    font-size: 14px;
+    border-radius: 0 2px 2px 0;
+    outline: none;
+}
+
+// Map side menu
+.side-menu {
+    border-radius: 1px;
+    z-index: 0;
+    width: 310px;
+    height: auto;
+    background-color: #FFFFFF;
+    position: fixed;
+    top: 9px;
+    left: 23px;
+    background-color: #FFFFFF;
+    -webkit-box-shadow: 0px 2px 3px -1px rgba(110,102,110,1);
+    -moz-box-shadow: 0px 2px 3px -1px rgba(110,102,110,1);
+    box-shadow: 0px 2px 3px -1px rgba(110,102,110,1);
+}
+
+.side-menu h1 {
+    font-size: 16px;
+    color: #4e4e4e;
+    padding: 20px 15px;
+}
+
+// drawing manager
+.drawingTool {
+    position: fixed !important;
+    top: 45px !important;
+    left: 348px !important;
+    -webkit-box-shadow: 0px 2px 3px -1px rgba(110,102,110,1);
+    -moz-box-shadow: 0px 2px 3px -1px rgba(110,102,110,1);
+    box-shadow: 0px 2px 3px -1px rgba(110,102,110,1);
+}
+
+.drawingTool div {
+    outline: none !important;
+}
+
+.drawingTool div span {
+    padding: 3.5px 4px;
+}
+
+// New point marker info window css
+.point-new-window {
+    width: 300px;
+    padding: 5px 0px 26px 0px;
+}
+
+.point-new-window h1 {
+    font-size: 14px;
+    color: #000000;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.point-new-row {
+    width: 100%;
+    margin: 8px 0px;
+}
+
+.point-new-row input, textarea {
+    width: 100%;
+    padding: 6px;
+    border-radius: 2px;
+    border: 1px solid #CCC;
+    outline: none;
+    font-size: 13px;
+}
+
+.point-new-row textarea {
+    resize: none;
+}
+
+.point-new-options {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.point-new-options i {
+    color: #4e4e4e;
+    font-size: 17px;
+    float: right;
+    margin-left: 19px;
+}
+
+.point-new-options a:first-child {
+    float: left;
+    color: #4e4e4e;
+    text-decoration: none;
+    margin-top: 1px;
+}
+
+.point-new-options a:first-child i {
+    float: left;
+    margin-left: 0;
+    margin-right: 7px;
+    font-size: 13px;
+    margin-top: 1px;
+}
+
+.point-new-options svg {
+    position: inherit;
+    width: 50px;
+    float: right;
+    bottom: -99px;
+    height: 50px;
+    margin-top: -22px;
+    margin-right: -8px;
+}
+
+.point-new-options a:first-child span.gps {
+    font-size: 11.5px;
+}
+
+.point-new-options .fa-sticky-note {
+    margin-top: 1px;
+}
+
+.point-new-options .fa-edit {
+    font-size: 18px;
+    margin-top: 2px;
+}
+
+.point-new-options .fa-pencil {
+    margin-top: 0px;
+}
+
+.point-new-options .fa-save {
+    font-size: 16.5px;
+    margin-top: 1.5px;
+}
+
+.point-new-options .fa-camera {
+    font-size: 16px;
+    margin-top: 1px;
+}
+
+.point-new-options .fa-trash {
+    font-size: 18px;
+    margin-top: 0.5px;
+}
+
+// custom map control button
+.custom-map {
+    position: fixed;
+    width: 31px;
+    height: 30px;
+    background-color: #FFFFFF;
+    z-index: 0;
+    left: 459px;
+    top: 67px;
+    -webkit-box-shadow: 0px 2px 3px -1px rgba(110,102,110,1);
+    -moz-box-shadow: 0px 2px 3px -1px rgba(110,102,110,1);
+    box-shadow: 0px 2px 3px -1px rgba(110,102,110,1);
+    text-align: center;
+    font-size: 16px;
+    padding-top: 7px;
+    border-radius: 1px;
+    outline: none;
+    color: #000000;
+    overflow: hidden;
+}
+
+.custom-map:hover {
+    background-color: #EBEBEB;
+    color: #000000;
+}
+
+//
+.point_device_new h1 {
+    font-size: 17px;
+    color: #4e4e4e;
+    font-weight: bold;
+}
+
+.modal-title {
+    padding-left: 1px;
+    font-size: 14px;
+    padding-top: 6px;
+}
+
+.menu_ctrl {
+    padding: 5px 16px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.footer_side {
+    // border-top: 1px solid #EEEEEE;
+    height: 10px;
+    width: 100%;
+}
+
+//  search 
+.search_result {
+    width: 100%;
+    border-top: 1px solid #CCC;
+    background-color: #FFFFFF;
+    padding: 7px 7px 15px 7px;
+}
+
+.search_result > div {
+}
+
+// connection device
+.conn_device .panel-heading, .panel-body {
+    padding: 10px 15px !important;
+}
+
+.conn_device .panel {
+    min-height: 250px !important;
+}
+
+.conn_device_ul ol {
+    background-color: #E6F9F7;
+    margin-bottom: 8px;
+    padding: 8px;
+    outline: none;
+    border-radius: 2px;
+}
+
+.onSelected {
+    background-color: #336699 !important;
+    color: #ffffff;
+}
+
+.onDisabled {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.map_search_dropdown {
+    position: absolute;
+    width: 83%;
+    height: auto;
+    background-color: #FFFFFF;
+    margin-top: 1px;
+    border-radius: 3px;
+    padding-top: 5px;
+    padding-bottom: 20px;
+    box-shadow: none;
+    outline: none;
+}
+
+.side_content {
+    max-height: 60vh !important;
+    overflow: hidden;
+    overflow-y: overlay;
+    border-top: 1px solid #CCC;
+}
+
+.map_search_dropdown ul ol {
+    padding: 4px 7.5px;
+}
+
+.map_search_dropdown ul ol:hover {
+    background-color: #CCC;
+}
+
+#search-data-list {
+    border-radius: 4px !important;
+}
+
+.search-map .dropdown-menu {
+    margin-left: -1px !important;
+}
+
+.isVisible {
+    display: inline;
+}
+
+.isInvisible {
+    display: none;
+}
+
+.side_header {
+    width: 100%;
+}
+
+.side_body {
+    
+}
+
+.point_model {
+    height: 330px;
+}
+
+.point_model .table {
+    border: 1px solid #CCC;
+}
+
+.connection-info {
+    margin: 10px 0;
+}
+
+.conxn-title {
+    font-size: 15px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.point-info-details {
+    padding-top: 10px;
+    min-height: 80px;
+}
+
+.point-info-desc {
+    margin-top: 4px;
+}

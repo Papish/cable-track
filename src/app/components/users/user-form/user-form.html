@@ -1,0 +1,92 @@
+<form name="form" method="post" novalidate>
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-title">
+      <span ng-if="$ctrl.new">Create new user</span>
+      <span ng-if="!$ctrl.new">Update user</span>
+    </h3>
+  </div>
+  <div class="modal-body" id="modal-body">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="form-group">
+          <label>Username</label>
+          <input 
+            type="text" 
+            name="" 
+            class="form-control input-sm" 
+            ng-model="$ctrl.user.username"
+            ng-readonly="!$ctrl.new"
+            required 
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input 
+            type="email" 
+            name="" 
+            class="form-control input-sm" 
+            ng-model="$ctrl.user.email" 
+            required
+            ng-readonly="!$ctrl.new"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Password</label>
+          <input 
+            type="password" 
+            name="" 
+            class="form-control input-sm" 
+            ng-model="$ctrl.user.password" 
+            required
+            ng-readonly="!$ctrl.new"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Permission</label>
+          <select 
+            name=""
+            ng-model="$ctrl.user.role"
+            class="form-control input-sm"
+            required
+            ng-disabled="$ctrl.user.role == 1"
+          >
+            <option value="" selected="selected">Select one</option>
+            <option value="1" disabled>Admin</option>
+            <option value="2">Read / Write</option>
+            <option value="3">Read only</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button 
+      class="btn btn-primary btn-sm"
+      ng-disabled="form.$invalid"
+      ng-if="$ctrl.new" 
+      ng-click="$ctrl.onSubmit()"
+    >
+      Create
+    </button>
+
+    <button 
+      class="btn btn-primary btn-sm"
+      ng-disabled="form.$invalid"
+      ng-if="!$ctrl.new" 
+      ng-click="$ctrl.onSubmit()"
+    >
+      Update
+    </button>
+
+    &nbsp;
+    <button 
+      class="btn btn-default btn-sm" 
+      ng-click="$ctrl.dismiss()"
+    >
+      Cancel
+    </button>
+  </div>
+</form>

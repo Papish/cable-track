@@ -1,0 +1,82 @@
+.device_marker {
+    width: 300px;
+    padding: 5px 0px 0px 0px;
+    overflow: hidden !important;
+}
+
+.device_marker h2 {
+    font-size: 14px;
+    color: #000000;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.device_marker_foot {
+    margin-top: 0px; 
+    color: #4e4e4e
+}
+
+.device_marker_foot i {
+    color: #4e4e4e;
+    font-size: 13px;
+}
+
+.device_marker_foot svg {
+    width: 41px;
+    height: 41px;
+    margin-top: -23.5px;
+    padding: 0px;
+    padding-top: 1px;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.device_marker table {
+    font-size: 12px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.device_marker table tr {
+    height: 20px;
+}
+
+.device_marker table tr td:first-child {
+    font-weight: bold;
+}
+
+.device_marker_foot .fa-trash {
+    position: relative;
+    top: -2.5px;
+    font-size: 17px;
+    bottom: 0;
+    margin-bottom: 0;
+    margin-left: 10px;
+}
+
+.device_marker_foot .fa-pencil {
+    position: relative;
+    top: -2.5px;
+    font-size: 17px;
+    bottom: 0;
+    margin-bottom: 0;
+    margin-left: 0px;
+    margin-right: -12px;
+}
+
+.device_marker_foot .fa-sticky-note {
+    position: relative;
+    top: -2px;
+    font-size: 17px;
+    bottom: 0;
+    margin-bottom: 0;
+    margin-left: 0px;
+    margin-right: -12px;
+}
+
+.device_marker input {
+    padding: 4px;
+    width: 100%;
+    outline: none;
+}

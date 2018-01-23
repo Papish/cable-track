@@ -1,0 +1,58 @@
+<div>
+  <button class="btn btn-success btn-sm" ng-click="$ctrl.onCreate()">Add new</button>
+</div>
+
+<div class="clearfix"></div>
+
+<br />
+
+<div class="panel panel-default">
+  <div class="panel-heading">Cables</div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th width="40%">Cable</th>
+          <th>Description</th>
+          <th width="25%"><span class="pull-right">Created at</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="noselect" 
+          ng-repeat="cable in $ctrl.devices"
+          ng-click="$ctrl.onSelected(cable)"
+        >
+          <td>
+            <span 
+              ng-bind="cable.name">
+            </span>
+          </td>
+          <td>
+            <span
+              ng-if="cable.description.length > 40" 
+            >
+              {{ cable.description.substring(0, 40) }} ...
+            </span>
+            <span
+              ng-if="cable.description.length <= 40"
+            >
+              {{ cable.description }}  
+            </span>
+          </td>
+          <td align="right">
+            <span
+              class="pull-right"
+              ng-bind="cable.created_at"
+            ></span>
+          </td>
+        </tr>
+        <tr 
+          ng-if="$ctrl.devices.length <= 0"
+        >
+          <td colspan="3">No data found</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

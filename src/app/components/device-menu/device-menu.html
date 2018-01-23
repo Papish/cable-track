@@ -1,0 +1,32 @@
+<section>
+  <hr class="no_margin" />
+  <div 
+    class="device_menu"
+    ng-class="$ctrl.device ? 'device_menu_active' : ''"
+  >
+    <md-checkbox
+      ng-model="$ctrl.device"
+      aria-label="nodes" 
+      ng-click="$ctrl.toggled()"
+    ></md-checkbox> <h2>{{ $ctrl.title }}</h2>
+    <div 
+      class="device_content"
+      ng-class="$ctrl.device ? 'device_content_active' : 'device_content_inactive'"
+    >
+      <div class="device_links">
+        <i class="fa fa-chevron-down" ng-click=""></i>
+        <img src="../../../img/roller.png" /> Sorted by ID ({{ $ctrl.devices.length }})
+      </div>
+      <ul class="device_lists noselect">
+        <ol
+          ng-repeat="device in $ctrl.devices"
+          ng-click="$ctrl.selected(device)"
+          ng-class="($ctrl.deviceOf.type == 5 && $ctrl.selectId == device.id) ? 'on_select' : ''"
+        >
+          <i class="fa fa-map-marker"></i>
+          <span>{{ device.name }}</span>
+        </ol>
+      </ul>
+    </div>
+  </div>
+</section>

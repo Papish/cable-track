@@ -1,0 +1,53 @@
+<a 
+  href="javascript:void(0)" 
+  ng-if="!$ctrl.edit"
+  ng-click="$ctrl.editDevice()"
+  title="Edit info"
+>
+  <i class="fa fa-pencil"></i>
+</a>
+
+<a 
+  href="javascript:void(0)" 
+  ng-if="$ctrl.edit"
+  ng-click="$ctrl.saveDevice($ctrl.device.name, $ctrl.device.id)"
+  title="Save changes"
+>
+  <i class="fa fa-sticky-note"></i>
+</a>
+
+<a 
+  ng-if="$ctrl.stage == 1 && (($ctrl.device.total_port - $ctrl.device.used_port) > 0)"
+  title="Start connection"
+  ui-sref="maps.dynamic.connection({
+    device_one: $ctrl.device.id
+  })">
+  <svg 
+    version="1.1" 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+  >
+    <polyline fill="none" stroke="#000000" stroke-width="1.4" stroke-miterlimit="10" points="34,26 27,33 36,37 37.328,30.08"/>
+    <circle fill="#FFFFFF" stroke="#000000" stroke-width="0.8" stroke-miterlimit="10" cx="34" cy="26" r="2"/>
+    <circle fill="#FFFFFF" stroke="#000000" stroke-width="0.8" stroke-miterlimit="10" cx="27" cy="33" r="2"/>
+    <circle fill="#FFFFFF" stroke="#000000" stroke-width="0.8" stroke-miterlimit="10" cx="36" cy="37" r="2"/>
+  </svg>
+</a>
+
+<a 
+  ng-if="$ctrl.stage == 2 && ($ctrl.device.in_port == 0)"
+  title="End connection"
+  ui-sref="maps.dynamic.connection({
+    device_two: $ctrl.device.id
+  })">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <polyline fill="none" stroke="#000000" stroke-width="1.4" stroke-miterlimit="10" points="34,26 27,33 36,37 37.328,30.08     "/>
+    <circle fill="#FFFFFF" stroke="#000000" stroke-width="0.8" stroke-miterlimit="10" cx="34" cy="26" r="2"/>
+    <circle fill="#FFFFFF" stroke="#000000" stroke-width="0.8" stroke-miterlimit="10" cx="27" cy="33" r="2"/>
+    <circle fill="#FFFFFF" stroke="#000000" stroke-width="0.8" stroke-miterlimit="10" cx="36" cy="37" r="2"/>
+  </svg>
+</a>
+
+<a href="#" ng-click="$ctrl.deleteMarker($ctrl.device.id)" title="Delete device">
+  <i class="fa fa-trash"></i>
+</a>

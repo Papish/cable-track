@@ -1,0 +1,13 @@
+<map-marker 
+  ng-repeat="point in $ctrl.points" 
+  lat="point.latitude" 
+  lng="point.longitude"
+  >
+  <div ng-non-bindable>
+    <point-form 
+      point="point"
+      on-device="$ctrl.showDevice($event)"
+      on-update="$ctrl.doUpdate($event)"
+    ></point-form>
+  </div>
+</map-marker>

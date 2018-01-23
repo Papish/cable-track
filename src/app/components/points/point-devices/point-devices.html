@@ -1,0 +1,117 @@
+<form name="pointDeviceAddForm" novalidate>
+
+  <div class="modal-header">
+    <h3 class="modal-title pull-left" id="modal-title">Point {{ $ctrl.resolve.pointId }}</h3>
+    <span class="pull-right" ng-click="$ctrl.cancel()"><i class="fa fa-close"></i></span>
+  </div>
+
+  <div class="point_model">
+    <div class="modal-body" id="modal-body" ng-if="$ctrl.tab == 1">
+      <div class="modal-title pull-left" id="modal-title">
+        <button class="btn btn-primary btn-sm" ng-click="$ctrl.tab = 2">Add new</button>
+        &nbsp;
+        <!-- <button class="btn btn-default btn-sm">Logs</button> -->
+      </div>
+      <div class="clearfix"></div>
+      <br />
+      <table class="table">
+        <thead>
+          <tr>
+            <th width="40%">Device name</th>
+            <th width="20%">In port</th>
+            <th width="20%">Used ports</th>
+            <th>Total ports</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-show="$ctrl.devices.length === 0">
+            <td colspan="4">No devices found</td>
+          </tr>
+          <tr 
+            ng-repeat="device in $ctrl.devices.slice(($ctrl.currentPage - 1) * $ctrl.devicePerPage, (($ctrl.currentPage) * $ctrl.devicePerPage))"
+          >
+            <td valign="middle" width="40%">
+              <span ng-if="device.device_type == 1">{{ device.name }}</span> 
+              <span ng-if="device.device_type == 2">Amplifier</span> 
+              <span ng-if="device.device_type == 3">Splitter</span> 
+              <span ng-if="device.device_type == 4">Tapoff</span> 
+            </td>
+            <td>
+              <span ng-if="device.in_port == 1">N/A</span>
+              <span ng-if="device.in_port == 0">Available</span>
+            </td>
+            <td valign="middle" width="20%">
+              <i class="fa fa-arrow-circle-up" uib-tooltip="Port in use" tooltip-placement="top"></i> {{ device.used_port }}
+            </td>
+            <td valign="middle" width="20%">
+              <i class="fa fa-arrow-circle-down" uib-tooltip="Port in total" tooltip-placement="top"></i> {{ device.total_port }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="modal-body" id="modal-body" ng-if="$ctrl.tab == 2">
+      <div class="row">
+        <div class="col-md-6 col-sm-6 point_device_new">
+          <button 
+            class="btn btn-primary btn-sm" 
+            type="button"
+            ng-disabled="pointDeviceAddForm.$invalid"
+            ng-click="$ctrl.addDevice()"
+            ng-dblclick="return"
+          >Save</button>
+          &nbsp;
+          <button class="btn btn-default btn-sm" 
+            ng-click="$ctrl.tab = 1"
+            >
+            <i class="fa fa-long-arrow-left"></i>
+          </button>
+          <br /><br />
+          <div class="form-group">
+            <label>Device category</label>
+            <select class="form-control input-sm" name="pointDeviceAddForm.deviceCategory" required
+              ng-model="$ctrl.device.type"
+              ng-options="x.id as x.name for x in $ctrl.deviceCategory"
+              ng-change="$ctrl.selectedCategory()">
+              <option value="" selected="selected">Select one</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Device lists</label>
+            <select class="form-control input-sm" name="pointDeviceAddForm.deviceCategory" required
+              ng-model="$ctrl.device.id"
+              ng-options="x.id as x.model_no for x in $ctrl.deviceLists">
+              <option value="" selected="selected">
+                Select one
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Device name</label>
+            <input type="text" name="pointDeviceAddForm.deviceName" class="form-control input-sm" required ng-model="$ctrl.device.name">
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-6">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <ul 
+      ng-if="$ctrl.tab == 1 && $ctrl.devices.length > 5"
+      uib-pagination 
+      boundary-links="true" 
+      total-items="$ctrl.devices.length" 
+      ng-model="$ctrl.currentPage"
+      items-per-page="$ctrl.devicePerPage"
+      class="pagination pull-left no_margin" 
+      previous-text="&lsaquo;" 
+      next-text="&rsaquo;" 
+      first-text="&laquo;" 
+      last-text="&raquo;"></ul>
+    <button class="btn btn-default btn-sm pull-right" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+  </div>
+</form>

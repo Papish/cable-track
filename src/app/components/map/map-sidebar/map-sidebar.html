@@ -1,0 +1,35 @@
+<div class="side-menu">
+  <div class="side_menu_header">
+    <h1>RF management system </h1>
+    <div class="menu_ctrl">
+      <div class="btn-group" uib-dropdown dropdown-append-to-body>
+        <button id="btn-append-to-body" type="button" class="btn btn-primary btn-sm" uib-dropdown-toggle>
+          CPanel
+        </button>
+        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+          <li role="menuitem"><a href="#" ng-click="$ctrl.newLayer()">Switch to dashboard</a></li>
+          <li class="divider"></li>
+          <li role="menuitem"><a ui-sref="logout">Logout</a></li>
+        </ul>
+      </div>
+      
+      <button class="btn btn-default btn-sm pull-right" ng-click="$ctrl.test()"><i class="fa fa-cogs"></i></button>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+    
+  <div class="clearfix"></div>
+
+  <div class="side_content">
+    <point-menu></point-menu>
+    <device-menu title="Nodes" device-of="{type: 1}"></device-menu>
+    <device-menu title="Amplifiers" device-of="{type: 2}"></device-menu>
+    <device-menu title="Splitters" device-of="{type: 3}"></device-menu>
+    <device-menu title="Tapoffs" device-of="{type: 4}"></device-menu>
+    <device-menu title="RF Cables" device-of="{type: 5}"></device-menu>
+  </div>
+
+  <hr class="no_margin" />
+  <br />
+  <div class="footer_side"></div>
+</div>

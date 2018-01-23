@@ -1,0 +1,74 @@
+.device_menu {
+    padding: 11px;
+    border-left: 6px solid #EEEEEE;
+    margin-bottom: 3px;
+}
+
+.device_menu_active {
+    border-left: 6px solid #538CEE;
+}
+
+.device_menu md-checkbox {
+    float: left;
+    margin: 0 !important;
+}
+
+.device_menu h2 {
+    margin-top: 4px;
+}
+
+.device_content {
+    padding-top: 15px;
+}
+
+.device_content_active {
+    display: block;
+}
+
+.device_content_inactive {
+    display: none;
+}
+
+.device_links {
+    padding: 0 3px;
+    color: #848AE1;
+}
+
+.device_links i {
+    margin-right: 15px;
+}
+
+.device_links img {
+    margin-right: 3.5px;
+}
+
+ul.device_lists {
+    padding-left: 31px;
+    margin-top: 7px;
+}
+
+ul.device_lists ol {
+    padding: 1px 0;
+    margin: 3px 0;
+    font-size: 12px;
+}
+
+ul.device_lists ol:hover {
+    background-color: #F1F1F1;
+}
+
+ul.device_lists ol i {
+    font-size: 19px;
+    margin-right: 6.5px;
+    margin-left: 6px;
+    color: #E65100;
+}
+
+ul.device_lists ol span {
+    position: relative;
+    top: -2px !important;
+}
+
+.on_select {
+    background-color: #F1F1F1;
+}

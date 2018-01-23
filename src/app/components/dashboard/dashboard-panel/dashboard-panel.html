@@ -1,0 +1,63 @@
+<div class="col-md-12">
+  <uib-tabset active="active">
+    <uib-tab index="0" heading="Summary">
+      <div class="panel panel-default">
+        <div class="panel-heading">General statistic</div>
+        <div class="panel-body">
+          <table class="table table-bordered table-striped">
+            <tr>
+              <td width="30%">Total Connections</td>
+              <td>{{ $ctrl.summary.connection }}</td>
+            </tr>
+            <tr>
+              <td>Total Points</td>
+              <td>{{ $ctrl.summary.point }}</td>
+            </tr>
+            <tr>
+              <td>Total Devices</td>
+              <td>{{ $ctrl.summary.point_devices }}</td>
+            </tr>
+            <tr>
+              <td>Total Users</td>
+              <td>{{ $ctrl.summary.users }}</td>
+            </tr>
+            <tr>
+              <td>Total cable (in meter)</td>
+              <td>{{ $ctrl.summary.connection }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </uib-tab>
+    <uib-tab index="1" heading="User activity">
+      <div class="panel panel-default">
+        <div class="panel-heading">User logs</div>
+        <div class="panel-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Log message</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="log in $ctrl.logs.slice(($ctrl.currentPage - 1) * $ctrl.itemPerPage, (($ctrl.currentPage) * $ctrl.itemPerPage))">
+                <td>[{{ log.date }}] - {{ log.log_message }} by `{{ log.username }}`</td>
+              </tr>
+            </tbody>
+          </table>
+          <ul 
+            uib-pagination 
+            boundary-links="true" 
+            total-items="$ctrl.logs.length" 
+            ng-model="$ctrl.currentPage"
+            items-per-page="$ctrl.itemPerPage"
+            class="pagination pull-left no_margin" 
+            previous-text="&lsaquo;" 
+            next-text="&rsaquo;" 
+            first-text="&laquo;" 
+            last-text="&raquo;"></ul>
+        </div>
+      </div>
+    </uib-tab>
+  </uib-tabset>
+</div>

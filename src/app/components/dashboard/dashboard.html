@@ -1,0 +1,55 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><i class="fa fa-renren"></i></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search Inventory">
+        </div>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a ui-sref="maps.dynamic">Google Map</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-12 dash_menu">
+        <!-- alert msg -->
+        <!-- <div uib-alert ng-class="'alert_box alert-danger'">Success</div> -->
+        
+        <div class="btn-group" uib-dropdown is-open="status.isopen">
+          <button id="single-button" type="button" class="btn btn-default btn-sm" uib-dropdown-toggle ng-disabled="disabled">
+            Navigation&nbsp; <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+            <li role="menuitem"><a href="#"><strong>Signed in: {{ $ctrl.user }}</strong></a></li>
+            <li class="divider"></li>
+            <li role="menuitem"><a ui-sref="dashboard.panel">Dashboard</a></li>
+            <li role="menuitem"><a ui-sref="dashboard.devices">Network devices</a></li>
+            <li role="menuitem"><a ui-sref="dashboard.users">Users</a></li>
+            <li class="divider"></li>
+            <li role="menuitem"><a ui-sref="logout">Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <ui-view></ui-view>
+
+      <!-- footer -->
+      <div class="col-md-12 footer">
+        <hr>
+        <span>
+          &copy; 2017 Sky TvNet - Inc
+        </span>
+      </div>
+    </div>
+</div>

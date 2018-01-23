@@ -1,0 +1,37 @@
+<map-marker 
+  ng-repeat="point in $ctrl.points" 
+  marker="point" 
+  info-window="true"
+  draggable="true"
+>
+  <div ng-non-bindable>
+    <div class="point-new-window">
+      <form name="pointAddForm">
+        <h1>Point <span ng-bind="point.id"></span></h1>
+        <div class="point-new-row">
+          <!-- Hidden value for latitude and longitude -->
+          <input type="hidden"
+            ng-model="$ctrl.newPoint.latitude" ng-init="$ctrl.newPoint.latitude = point.getPosition().lat().toFixed(6)">
+
+          <input type="hidden"
+            ng-model="$ctrl.newPoint.longitude" ng-init="$ctrl.newPoint.longitude = point.getPosition().lng().toFixed(6)">
+
+          <input type="text" placeholder="Location" ng-model="$ctrl.newPoint.location">
+        </div>
+        
+        <div class="point-new-row">
+          <textarea rows="4" placeholder="Description (optional)" ng-model="$ctrl.newPoint.description"></textarea>
+        </div>
+
+        <div class="point-new-options">
+          <a>
+            <i class="fa fa-map-marker"></i> 
+            <span class="gps" ng-cloak>{{ point.getPosition().lat().toFixed(6) }}, {{ point.getPosition().lng().toFixed(6) }}</span>
+          </a>
+          <a href="" ng-click="$ctrl.deletePoint()"><i class="fa fa-trash"></i></a>
+          <a href="" ng-click="$ctrl.insertPoint()"><i class="fa fa-save"></i></a>
+        </div>
+      </form>
+    </div>
+  </div>
+</map-marker>
