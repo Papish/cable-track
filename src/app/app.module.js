@@ -16,5 +16,16 @@ import './components/device-marker/device-marker.module';
 import './components/connections/connections.module';
 
 angular
-  .module('wsApp.app', ['wsApp.common', 'wsApp.dashboard', 'wsApp.devices', 'wsApp.users', 'wsApp.map', 'wsApp.points', 'connections', 'deviceMenu', 'pointMenu', 'deviceMarker'])
-  .component('home', home);
+  .module('wsApp.app', [
+		'wsApp.common',
+		'wsApp.dashboard',
+		'wsApp.devices',
+		'wsApp.users',
+		'wsApp.map',
+		'wsApp.points',
+		'connections',
+		'deviceMenu',
+		'pointMenu',
+		'deviceMarker'
+	])
+	.component('home', home);

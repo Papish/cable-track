@@ -2,16 +2,12 @@ $fa-font-path: "~font-awesome/fonts";
 $icon-font-path: "~font-awesome/fonts/";
 
 @import '~font-awesome/scss/font-awesome';
-
 @import '~bootstrap/dist/css/bootstrap.css';
 @import '~angular-ui-bootstrap/dist/ui-bootstrap-csp';
-
 @import '~normalize.css/normalize';
 @import '~reset.css/reset';
 @import '~animate.css/animate';
 @import '~angular-toastr/dist/angular-toastr';
-
 @import '~angular-material/angular-material.css';
 @import '~angular-material/layouts/angular-material.layouts.css';
-
 @import 'sass/style.scss';

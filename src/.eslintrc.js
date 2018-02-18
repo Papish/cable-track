@@ -9,7 +9,8 @@ module.exports = {
     'no-console': 0,
     'angular/log': 0,
     'linebreak-style': 0,
-    'radix': 0
+    'radix': 0,
+    'indent': 0
   },
   globals: {
   	'google': true
