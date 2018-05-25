@@ -1,4 +1,3 @@
-import './point-menu.scss';
 const template = require('./point-menu.html');
 
 export const PointMenuComponent = {
@@ -13,6 +12,7 @@ export const PointMenuComponent = {
       this.MapService = MapService;
 
       this.$rootScope = $rootScope;
+      this.point = true;
     }
     $onInit() {
       this.PointService.fetchAll()
@@ -25,8 +25,6 @@ export const PointMenuComponent = {
             this.points.push(val.data);
           }
         });
-
-      this.point = false;
 
       this.$rootScope.$on('SEARCH_ON', () => {
         this.point = true;

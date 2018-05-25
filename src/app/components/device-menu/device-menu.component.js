@@ -1,5 +1,3 @@
-import './device-menu.scss';
-
 const template = require('./device-menu.html');
 
 export const DeviceMenuComponent = {
@@ -19,6 +17,7 @@ export const DeviceMenuComponent = {
 
       this.$window = $window;
     }
+
     $onInit() {
       this.device = false;
 
@@ -77,6 +76,12 @@ export const DeviceMenuComponent = {
       }
     }
 
+    /**
+     * On user select of cable
+     * The selected cable is set to default wire for connection
+     *
+     * @param device Object
+     */
     selected(device) {
       if (this.deviceOf.type === 5) {
         this.selectId = device.id;

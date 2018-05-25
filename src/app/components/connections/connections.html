@@ -14,27 +14,38 @@
           </tr>
 
           <tr>
-            <td height="20">Point one: </td><td> {{ conxn.point_one_id }} </td>
-            <td>Point two: </td><td> {{ conxn.point_two_id }} </td>
+            <td height="20">Point one: </td><td>&nbsp;{{ conxn.point_one_id }} </td>
+            <td>Point two: </td><td>&nbsp;{{ conxn.point_two_id }} </td>
           </tr>
 
           <tr>
-            <td height="20">Device: </td><td> {{ conxn.point_one_device_name }} </td>
-            <td>Device: </td><td> {{ conxn.point_two_device_name }} </td>
+            <td height="20">Device: </td><td>&nbsp;{{ conxn.point_one_device_name }} </td>
+            <td>Device: </td><td>&nbsp;{{ conxn.point_two_device_name }} </td>
           </tr>
           <tr>
-            <td>Cable length:</td>
-            <td>{{ conxn.distance }} m</td>
+            <td height="20">Cable: </td>
+            <td>&nbsp;{{ conxn.cable }}</td>
+          </tr>
+          <tr>
+            <td>Cable length: </td>
+            <td>&nbsp;{{ conxn.distance }} m</td>
           </tr>
         </table>
         <br />
-        <a 
+        
+        <!-- <a 
           href="" 
           ng-click="$ctrl.deleteConnection(conxn.id)"
           style="font-size: 17px" 
         >
           <i class="fa fa-trash"></i>
-        </a>
+        </a> -->
+
+        <button 
+          type="button"
+          class="btn btn-default btn-sm"
+          ng-click="$ctrl.deleteConnection(conxn.id)"
+        >Delete</button>
       </div>
     </div>
   </connection-poly>

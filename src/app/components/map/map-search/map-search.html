@@ -1,5 +1,8 @@
 <div class="search-map">
-  <form>
+  <form 
+    novalidate 
+    ng-submit="$ctrl.searchGps()"
+  >
     <input type="text"
       ng-model="$ctrl.search.keyword"
       ng-model-options="{debounce: 150}"
@@ -8,8 +11,8 @@
       typeahead-no-results="noResults"
       typeahead-on-select="$ctrl.searchMap($item)"
       class="map-search-box"
-      ng-keypress="$ctrl.searchGps($event)"
-    ><button type="button"><i class="fa fa-search"></i></button>
+      autocomplete="on" 
+    ><button type="submit"><i class="fa fa-search"></i></button>
     <!-- <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i> -->
     <!-- <div ng-show="noResults">
       No Results Found

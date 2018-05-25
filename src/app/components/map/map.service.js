@@ -32,8 +32,8 @@ export default class MapService {
       },
       fullscreenControl: false,
       streetViewControl: false,
-      draggableCursor: 'default',
-      mapTypeId: 'satellite'
+      draggableCursor: 'default'
+      // mapTypeId: 'satellite'
     });
 
     // Assign new property to map object above which holds markers array

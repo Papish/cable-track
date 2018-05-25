@@ -13,6 +13,7 @@ export const ConnectionNewComponent = {
       this.toastr = toastr;
 
       this.Auth = Auth;
+      this.xhrOnSaveProgress = false;
     }
 
     $onInit() {
@@ -72,6 +73,7 @@ export const ConnectionNewComponent = {
             });
         });
     }
+
     stageTwo() {
       const id = this.$stateParams.device_two;
 
@@ -96,21 +98,31 @@ export const ConnectionNewComponent = {
               distance: Math.trunc(x)
             };
 
+            if (this.xhrOnSaveProgress) {
+              return;
+            }
+
+            this.xhrOnSaveProgress = true;
             this.ConnectionNewService.saveConxn(data)
               .then(data => {
                 if (data) {
                   this.ConnectionNewService.stop();
                   this.$rootScope.$broadcast('NEW_CONXN', data);
-                  this.$state.go('maps.dynamic', {
-                    reload: true
-                  });
+                  // this.$state.reload('maps.dynamic', {
+                  //   reload: false
+                  // });
                   this.toastr.clear();
                   this.toastr.info('New connection added', 'Success');
                 }
+                this.xhrOnSaveProgress = false;
+              })
+              .finally(() => {
+                this.xhrOnSaveProgress = false;
               });
           }
         });
     }
+
     $onDestroy() {
       if (this.$state.current.name === 'maps.dynamic') {
         if (this.ConnectionNewService.polyline !== null) {

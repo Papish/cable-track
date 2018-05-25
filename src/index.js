@@ -5,7 +5,6 @@
  * @author: Papish Limbu
  */
 import angular from 'angular';
-import ngRedux from 'ng-redux';
 import routesConfig from './routes';
 import runConfig from './config';
 
@@ -16,11 +15,19 @@ import 'angular-toastr';
 import 'angular-material';
 import 'angular-animate';
 import 'angular-aria';
+import 'angular-loading-bar';
 
 import './constant';
 import './index.scss';
-import './app/app.module';
+import './app';
+// import 'angular-loading-bar/src/loading-bar.js';
+
+import ngRedux from 'ng-redux';
 import {reducers} from './app/store';
+import {createLogger} from 'redux-logger';
+
+const env = 'production';
+// const evn = 'development';
 
 /** @ngInject */
 angular
@@ -28,10 +35,11 @@ angular
     // Core
     'ui.router',
     'ui.bootstrap',
-    // Modules
+    // Third party Modules
     'ngResource',
     'ngMaterial',
-
+    'angular-loading-bar',
+    'ngAnimate',
     ngRedux,
     'toastr',
     // Custom
@@ -39,8 +47,14 @@ angular
     'wsApp.app'
   ])
   .config(routesConfig)
-  .config($ngReduxProvider => {
+  .config((cfpLoadingBarProvider, $ngReduxProvider) => {
     'ngInject';
-    $ngReduxProvider.createStoreWith(reducers);
+
+    cfpLoadingBarProvider.includeSpinner = false;
+    if (env === 'production') {
+      $ngReduxProvider.createStoreWith(reducers);
+    } else if (env === 'development') {
+      $ngReduxProvider.createStoreWith(reducers, [createLogger()]);
+    }
   })
   .run(runConfig);

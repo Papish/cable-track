@@ -1,8 +1,6 @@
-/* export reducers */
 import {combineReducers} from 'redux';
+import {reducer as newPoint} from './points/reducer';
 
 export const reducers = combineReducers({
-	root(state) {
-		return state;
-	}
+	newPoint
 });

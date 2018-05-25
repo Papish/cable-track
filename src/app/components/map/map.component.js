@@ -18,13 +18,14 @@ export const MapComponent = {
       this.MapService = MapService;
 
       this.search = '';
+      this.markers = [];
     }
 
     $onInit() {
       const mapOptions = {
         lat: 27.685665,
         lng: 85.346066,
-        zoom: 16
+        zoom: 17
       };
 
       this.MapService.setMap({
@@ -35,6 +36,10 @@ export const MapComponent = {
       this.$state.go(this.$state.current.name, {
         dc: false
       });
+    }
+
+    foo() {
+      console.log('omg');
     }
 
     $onDestroy() {

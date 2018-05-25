@@ -16,6 +16,9 @@ class PointDevicesController {
     this.tab = 1;
 
     this.$rootScope = $rootScope;
+
+    // XHR
+    this.xhrOnSaveProgress = false;
   }
 
   $onInit() {
@@ -84,6 +87,12 @@ class PointDevicesController {
   }
 
   addDevice() {
+    if (this.xhrOnSaveProgress) {
+      return;
+    }
+
+    this.xhrOnSaveProgress = true;
+
     const user = this.Auth.getLoggedUser();
 
     const formData = {
@@ -103,6 +112,9 @@ class PointDevicesController {
           this.device = {};
           this.$rootScope.$broadcast('NEW_DEVICE', data);
         }
+      })
+      .finally(() => {
+        this.xhrOnSaveProgress = false;
       });
   }
 

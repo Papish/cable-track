@@ -10,6 +10,7 @@
       ng-click="$ctrl.toggled()"
     ></md-checkbox> <h2>{{ $ctrl.title }}</h2>
     <div 
+      ng-show="$ctrl.devices.length > 0"
       class="device_content"
       ng-class="$ctrl.device ? 'device_content_active' : 'device_content_inactive'"
     >

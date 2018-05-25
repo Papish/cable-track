@@ -6,6 +6,7 @@ class LoginController {
     this.$state = $state;
 
     this.Auth = Auth;
+    this.xhrOnLoad = false;
   }
 
   $onInit() {
@@ -18,6 +19,11 @@ class LoginController {
   }
 
   validateAuth() {
+    if (this.xhrOnLoad) {
+      return;
+    }
+
+    this.xhrOnLoad = true;
     this.Auth.login(this.user)
       .then(data => {
         if (!data || angular.isUndefined(data.id)) {
@@ -26,6 +32,9 @@ class LoginController {
         }
         this.Auth.setLoggedUser(data);
         this.$state.go('maps.dynamic');
+      })
+      .finally(() => {
+        this.xhrOnLoad = false;
       });
   }
 }

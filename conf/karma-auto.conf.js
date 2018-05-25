@@ -16,10 +16,9 @@ module.exports = function (config) {
       'jasmine'
     ],
     files: [
-      'node_modules/angular/angular.js',
       'node_modules/es6-shim/es6-shim.js',
-      'https://maps.googleapis.com/maps/api/js?key=AIzaSyAtXsGRjLXwpO8KQix9nRwNwiHIOnZwZYA&libraries=drawing,places,geometry',
-      conf.path.src('**/*.spec.js')
+      conf.path.src('index.spec.js'),
+      conf.path.src('**/*.html')
     ],
     preprocessors: {
       [conf.path.src('index.spec.js')]: [

@@ -45,4 +45,17 @@ export default class DeviceMarkerService {
         this.$log.error(err);
       });
   }
+
+  getDeviceDetail(id) {
+    return this.$http.post(this.baseUrl + 'devices/get_device_detail/' + id, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    })
+      .then(response => {
+        return response.data;
+      }, err => {
+        this.$log.error(err);
+      });
+  }
 }

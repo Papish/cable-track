@@ -1,4 +1,9 @@
-// CONSTANT to store all map markers
+import point from './point.png';
+import node from './node.png';
+import amp from './amp.png';
+import splitter from './splitter.png';
+import tapoff from './tapoff.png';
+
 export const MapMarkerComponent = {
   bindings: {
     id: '<',
@@ -10,7 +15,7 @@ export const MapMarkerComponent = {
     draggable: '<'
   },
   controller: class MapMarkerComponent {
-    constructor($element, $compile, $scope, MapService, MapMarkerService) {
+    constructor($element, $compile, $scope, MapService, MapMarkerService, $state) {
       'ngInject';
 
       this.$element = $element;
@@ -21,6 +26,7 @@ export const MapMarkerComponent = {
       this.icon = null;
 
       this.MapMarkerService = MapMarkerService;
+      this.$state = $state;
     }
 
     $onInit() {
@@ -38,19 +44,19 @@ export const MapMarkerComponent = {
     markerIcon() {
       switch (this.type) {
         case '1':
-          this.icon = '../../img/node.png';
+          this.icon = node;
           break;
         case '2':
-          this.icon = '../../img/amp.png';
+          this.icon = amp;
           break;
         case '3':
-          this.icon = '../../img/splitter.png';
+          this.icon = splitter;
           break;
         case '4':
-          this.icon = '../../img/tapoff.png';
+          this.icon = tapoff;
           break;
         default:
-          this.icon = '../../img/point.png';
+          this.icon = point;
       }
     }
 
@@ -73,6 +79,13 @@ export const MapMarkerComponent = {
       }
 
       this.MapService.pushMarkerToArray(this.marker);
+
+      // this.marker.addListener('click', event => {
+      //   this.$state.go('maps.dynamic', {
+      //     center: event.latLng.lat() + ',' + event.latLng.lng(),
+      //     dc: false // dc: dynamic center from config
+      //   });
+      // });
     }
 
     getTemp(template) {

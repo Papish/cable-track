@@ -7,9 +7,11 @@ export const MapSidebarComponent = {
       'ngInject';
       this.$state = $state;
     }
+
     $onInit() {
     }
-    newLayer() {
+
+    dashboard() {
       this.$state.go('dashboard.panel');
     }
   }

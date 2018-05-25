@@ -1,0 +1,32 @@
+<div class="point-new-window">
+    <form 
+    	ng-submit="$ctrl.save()"
+    	name="pointAddForm"
+    	novalidate 
+    	>
+        <h1>Point</h1>
+        <div class="point-new-row">
+          	<input type="text" 
+          		placeholder="Location" 
+          		ng-model="$ctrl.point.location">
+        </div>
+        
+        <div class="point-new-row">
+          	<textarea rows="3" 
+          		placeholder="Description (optional)" 
+          		ng-model="$ctrl.point.description"
+          	></textarea>
+        </div>
+
+        <div class="point-new-options">
+          	<button 
+            	type="submit"
+            	class="btn btn-sm btn-primary">Save</button>
+          	&nbsp; 
+          	<button 
+          		type="button"
+            	ng-click="$ctrl.cancel()"
+            	class="btn btn-sm btn-default">Cancel</button>
+    	</div>
+  	</form>
+</div>

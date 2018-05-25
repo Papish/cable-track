@@ -1,0 +1,13 @@
+<map-marker 
+  ng-repeat="device in $ctrl.devices"
+  id="device.id" 
+  lat="device.latitude" 
+  lng="device.longitude"
+  type="device.device_type"
+  >
+  <div ng-non-bindable ng-cloak>
+    <device-marker-cont 
+      data="device"
+    ></device-marker-cont>
+  </div>
+</map-marker>

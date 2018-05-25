@@ -27,7 +27,7 @@ export const connectionPoly = {
         levels: decodedLevels,
         strokeColor: '#000000',
         strokeOpacity: 1,
-        strokeWeight: 1.5
+        strokeWeight: 1
       });
 
       this.info = null;

@@ -1,11 +1,11 @@
 <map-marker 
-  ng-repeat="point in $ctrl.points" 
+  ng-repeat="point in $ctrl.points track by $index" 
   marker="point" 
   info-window="true"
   draggable="true"
 >
   <div ng-non-bindable>
-    <div class="point-new-window">
+    <div class="point-new-window" ng-submit="$ctrl.insertPoint()">
       <form name="pointAddForm">
         <h1>Point <span ng-bind="point.id"></span></h1>
         <div class="point-new-row">
@@ -20,16 +20,18 @@
         </div>
         
         <div class="point-new-row">
-          <textarea rows="4" placeholder="Description (optional)" ng-model="$ctrl.newPoint.description"></textarea>
+          <textarea rows="3" placeholder="Description (optional)" ng-model="$ctrl.newPoint.description"></textarea>
         </div>
 
         <div class="point-new-options">
-          <a>
-            <i class="fa fa-map-marker"></i> 
-            <span class="gps" ng-cloak>{{ point.getPosition().lat().toFixed(6) }}, {{ point.getPosition().lng().toFixed(6) }}</span>
-          </a>
-          <a href="" ng-click="$ctrl.deletePoint()"><i class="fa fa-trash"></i></a>
-          <a href="" ng-click="$ctrl.insertPoint()"><i class="fa fa-save"></i></a>
+          <button 
+            type="submit"
+            class="btn btn-sm btn-primary">Save</button>
+          &nbsp; 
+          <button 
+            type="button" 
+            ng-click="$ctrl.deletePoint()"
+            class="btn btn-sm btn-default">Cancel</button>
         </div>
       </form>
     </div>

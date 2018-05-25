@@ -1,9 +1,10 @@
 <map-marker 
-  ng-repeat="point in $ctrl.points" 
+  ng-repeat="point in $ctrl.points track by $index" 
   lat="point.latitude" 
   lng="point.longitude"
+  icon="../../../img/pointnew.png"
   >
-  <div ng-non-bindable>
+  <div ng-non-bindable ng-cloak>
     <point-form 
       point="point"
       on-device="$ctrl.showDevice($event)"

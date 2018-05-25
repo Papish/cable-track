@@ -27,6 +27,18 @@ module.exports = {
         loaders: [
           'html-loader'
         ]
+      },
+      { 
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff&name=assets/fonts/[hash].[ext]' 
+      },
+      { 
+        test: /\.(otf|woff|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'file-loader?name=assets/fonts/[hash].[ext]'
+      },
+      {
+        test: /\.(png|jpg|jpeg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'file-loader?name=assets/images/[name].[ext]'
       }
     ]
   },
@@ -35,6 +47,6 @@ module.exports = {
       options: {},
       debug: true
     })
-  ],
-  devtool: 'source-map'
+  ]
+  // devtool: 'source-map'
 };

@@ -15,6 +15,16 @@ import './components/point-menu/point-menu.module';
 import './components/device-marker/device-marker.module';
 import './components/connections/connections.module';
 
+// Containers modules
+import './containers/googleMap';
+import './containers/users';
+import './containers/points';
+
+// Component modules
+import './dumb';
+import './core';
+
+/** @ngInject */
 angular
   .module('wsApp.app', [
 		'wsApp.common',
@@ -26,6 +36,12 @@ angular
 		'connections',
 		'deviceMenu',
 		'pointMenu',
-		'deviceMarker'
+		'deviceMarker',
+		// Container modules
+		'app.users',
+		'app.points',
+		'app.core',
+		'app.map',
+		'AppDumbComponentsModule'
 	])
 	.component('home', home);

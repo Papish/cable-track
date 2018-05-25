@@ -27,7 +27,7 @@ function runConfig($rootScope, $timeout, $location, $state, $stateParams, $uibMo
     // close any open google marker info window on route change
     if ($stateParams.dc === 'false') {
       if (MapService.infoWindow !== null) {
-        MapService.infoWindow.close();
+        // MapService.infoWindow.close();
       }
     }
 

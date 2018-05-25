@@ -15,6 +15,8 @@ export const PointMarkerComponent = {
       this.toastr = toastr;
 
       this.Auth = Auth;
+
+      this.xhrOnUpdateProgress = false;
     }
 
     $onInit() {
@@ -41,11 +43,20 @@ export const PointMarkerComponent = {
     }
 
     doUpdate(event) {
+      if (this.xhrOnUpdateProgress) {
+        return;
+      }
+
+      this.xhrOnUpdateProgress = true;
+
       event.updated_by = this.Auth.getLoggedUser().id; // eslint-disable-line
 
       this.PointService.update(event)
         .then(() => {
           // this.toastr.info('Updated successfully', 'Point');
+        })
+        .finally(() => {
+          this.xhrOnUpdateProgress = false;
         });
     }
   }

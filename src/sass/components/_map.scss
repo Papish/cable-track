@@ -64,7 +64,7 @@ div.toast-title {
     top: 9px;
     left: 353px;
     background-color: #FFFFFF;
-    width: 450px;
+    width: 500px;
     border-radius: 2px;
     -webkit-box-shadow: 0px 1px 2px 0px rgba(110,102,110,1);
     -moz-box-shadow: 0px 1px 2px 0px rgba(110,102,110,1);
@@ -72,7 +72,7 @@ div.toast-title {
 }
 
 .search-map input {
-    width: 85%;
+    width: 84%;
     padding: 8px 7px;
     border: none;
     border-radius: 2px;
@@ -88,7 +88,7 @@ div.toast-title {
 }
 
 .search-map button {
-    width: 15%;
+    width: 16%;
     border: none;
     background-color: #4C8BF1;
     padding: 8px 7px;
@@ -125,9 +125,9 @@ div.toast-title {
     position: fixed !important;
     top: 45px !important;
     left: 348px !important;
-    -webkit-box-shadow: 0px 2px 3px -1px rgba(110,102,110,1);
-    -moz-box-shadow: 0px 2px 3px -1px rgba(110,102,110,1);
-    box-shadow: 0px 2px 3px -1px rgba(110,102,110,1);
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(110,102,110,1);
+    -moz-box-shadow: 0px 1px 2px 0px rgba(110,102,110,1);
+    box-shadow: 0px 1px 2px 0px rgba(110,102,110,1);
 }
 
 .drawingTool div {
@@ -135,20 +135,20 @@ div.toast-title {
 }
 
 .drawingTool div span {
-    padding: 3.5px 4px;
+    padding: 4px 5px;
 }
 
 // New point marker info window css
 .point-new-window {
     width: 300px;
-    padding: 5px 0px 26px 0px;
+    padding: 4px 0px 8px 5px;
 }
 
 .point-new-window h1 {
-    font-size: 14px;
+    font-size: 16px;
     color: #000000;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
 .point-new-row {
@@ -171,7 +171,7 @@ div.toast-title {
 
 .point-new-options {
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 2px;
 }
 
 .point-new-options i {
@@ -223,19 +223,18 @@ div.toast-title {
     margin-top: 0px;
 }
 
-.point-new-options .fa-save {
-    font-size: 16.5px;
-    margin-top: 1.5px;
+.point-new-options .btn-primary {
+    padding: 4px 16px !important;
 }
 
-.point-new-options .fa-camera {
-    font-size: 16px;
-    margin-top: 1px;
+.point-new-options .btn-default {
+    padding: 4px 16px !important;
 }
 
 .point-new-options .fa-trash {
     font-size: 18px;
     margin-top: 0.5px;
+    margin-left: 5px;
 }
 
 // custom map control button
@@ -285,7 +284,7 @@ div.toast-title {
 
 .footer_side {
     // border-top: 1px solid #EEEEEE;
-    height: 10px;
+    height: 22px;
     width: 100%;
 }
 
@@ -400,7 +399,7 @@ div.toast-title {
 
 .point-info-details {
     padding-top: 10px;
-    min-height: 80px;
+    min-height: 100px;
 }
 
 .point-info-desc {

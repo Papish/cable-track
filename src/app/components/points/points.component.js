@@ -12,6 +12,7 @@ export const PointsComponent = {
       this.MapService = MapService;
 
       this.Auth = Auth;
+      this.xhrSaveOnProgress = false;
     }
 
     $onInit() {
@@ -29,6 +30,14 @@ export const PointsComponent = {
       this.PointService.fetchAll()
         .then(points => {
           this.points = points;
+        });
+
+      // Subscribing to RxJS observable
+      this.PointService.points
+        .subscribe(val => {
+          if (val.data) {
+            this.points.push(val.data);
+          }
         });
     }
 
@@ -89,6 +98,12 @@ export const PointsComponent = {
     }
 
     savePoint(event) {
+      if (this.xhrSaveOnProgress) {
+        return;
+      }
+
+      this.xhrSaveOnProgress = true;
+
       if (!event) {
         return;
       }
@@ -106,6 +121,9 @@ export const PointsComponent = {
             description: ''
           };
           this.markers = [];
+        })
+        .finally(() => {
+          this.xhrSaveOnProgress = false;
         });
     }
 

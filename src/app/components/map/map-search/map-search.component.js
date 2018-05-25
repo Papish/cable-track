@@ -1,17 +1,21 @@
+import * as newPointActions from '../../../store/points/action';
 const template = require('./map-search.html');
 
 export const MapSearchComponent = {
   template,
   controller: class MapSearchComponent {
-    constructor(MapService, PointService, $timeout, $state, $rootScope) {
+    constructor(MapService, PointService, $state, $rootScope, $ngRedux, $scope) {
       'ngInject';
 
       this.MapService = MapService;
       this.PointService = PointService;
-      this.$timeout = $timeout;
       this.$state = $state;
 
       this.$rootScope = $rootScope;
+
+      // Redux
+      const unsubscribe = $ngRedux.connect(this.mapStateToThis, newPointActions)(this);
+      $scope.$on('$destroy', unsubscribe);
     }
 
     $onInit() {
@@ -22,32 +26,54 @@ export const MapSearchComponent = {
     }
 
     search(keyword) {
-      const word = keyword.replace(',', '');
-      return this.MapService.search(word)
+      if(angular.isDefined(keyword) && keyword.indexOf(',') !== -1) {
+        return;
+      }
+
+      return this.MapService.search(keyword)
         .then(data => {
           return data;
         });
     }
 
-    searchGps(event) {
-      if (event.keyCode !== 13) {
-        return;
+    searchGps() {
+      // let x = '20';
+      // x = parseFloat(x);
+      // console.log(x);
+      const gps = this.search.keyword;
+      let gpsArray = {};
+
+      if (gps.indexOf(',') !== -1) {
+        // has comma seperated value
+        gpsArray = gps.split(',');
+      } else if (gps.indexOf(' ') !== -1) {
+        // has space seperated value
+        gpsArray = gps.split(' ');
       }
 
-      if (/^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/.test(this.search.keyword)) {
-        const gps = this.search.keyword.replace(' ', '').split(',');
-        const lat = gps[0];
-        const lng = gps[1];
+      if (gpsArray.length === 2) {
+        gpsArray[0] = parseFloat(gpsArray[0]);
+        gpsArray[1] = parseFloat(gpsArray[1]);
 
-        this.$state.go('maps.dynamic', {
-          center: lat + ',' + lng,
-          dc: false
-        }, {
-          notify: false,
-          reload: false
-        });
+        if (!isNaN(gpsArray[0]) && !isNaN(gpsArray[1])) {
+          const coords = {
+            latitude: gpsArray[0],
+            longitude: gpsArray[1]
+          };
 
-        this.search.keyword = '';
+          // Redux action dispatcher
+          // Action with entered co-ordinates
+          this.addPoint(coords);
+          this.search.keyword = '';
+
+          this.$state.go('maps.dynamic', {
+            center: coords.latitude + ',' + coords.longitude,
+            dc: false
+          }, {
+            notify: false,
+            reload: false
+          });
+        }
       }
     }
 
@@ -62,6 +88,10 @@ export const MapSearchComponent = {
 
       this.$rootScope.$broadcast('SEARCH_ON');
       this.search.keyword = '';
+    }
+
+    mapStateToThis() {
+      return {};
     }
 
     $onDestroy() {

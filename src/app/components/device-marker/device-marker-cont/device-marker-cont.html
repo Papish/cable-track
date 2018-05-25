@@ -1,0 +1,28 @@
+<div class="device_marker">
+  <h2 ng-if="!$ctrl.edit">{{ $ctrl.device.name }}</h2>
+  <input ng-if="$ctrl.edit" type="text" ng-model="$ctrl.device.name" />
+  <table>
+    <tr>
+      <td width="75">In Port:</td>
+      <td>
+        <span ng-if="$ctrl.device.in_port == 0">Available</span>
+        <span ng-if="$ctrl.device.in_port == 1">N/A</span>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>Used Ports: </td>
+      <td>{{ $ctrl.device.used_port }}</td>
+    </tr>
+
+    <tr>
+      <td>Total Ports: </td><td>{{ $ctrl.device.total_port }}</td>
+    </tr>
+  </table>
+  <div class="device_marker_foot">
+    <i class="fa fa-map-marker"></i> {{ $ctrl.device.latitude }}, {{ $ctrl.device.longitude }}
+       <span class="pull-right">
+      <device-links device="$ctrl.device" edit="$ctrl.edit" on-edit="$ctrl.onEdit($event)"></device-links>
+    </span>
+  </div>
+</div>

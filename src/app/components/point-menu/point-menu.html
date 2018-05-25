@@ -9,7 +9,8 @@
       aria-label="nodes" 
       ng-click="$ctrl.toggled()"
     ></md-checkbox> <h2>Map Points</h2>
-    <div 
+    <div
+      ng-show="$ctrl.points.length > 0" 
       class="point_content"
       ng-class="$ctrl.point ? 'point_content_active' : 'point_content_inactive'"
     >
