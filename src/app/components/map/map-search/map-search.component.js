@@ -4,7 +4,7 @@ const template = require('./map-search.html');
 export const MapSearchComponent = {
   template,
   controller: class MapSearchComponent {
-    constructor(MapService, PointService, $state, $rootScope, $ngRedux, $scope) {
+    constructor(MapService, PointService, $state, $rootScope, $ngRedux, $scope, $document) {
       'ngInject';
 
       this.MapService = MapService;
@@ -12,13 +12,25 @@ export const MapSearchComponent = {
       this.$state = $state;
 
       this.$rootScope = $rootScope;
+      this.$document = $document;
 
+      this.activeSearch = 0;
+      this.searchTypes = [{
+        id: 0,
+        name: 'Google Map'
+      }, {
+        id: 1,
+        name: 'Devices'
+      }];
       // Redux
       const unsubscribe = $ngRedux.connect(this.mapStateToThis, newPointActions)(this);
       $scope.$on('$destroy', unsubscribe);
     }
 
     $onInit() {
+      const searchInput = this.$document[0].getElementById('google-search');
+      this.MapService.locationWiseSearch(searchInput);
+
       this.PointService.fetchAll()
         .then(points => {
           this.points = points;
@@ -29,7 +41,6 @@ export const MapSearchComponent = {
       if(angular.isDefined(keyword) && keyword.indexOf(',') !== -1) {
         return;
       }
-
       return this.MapService.search(keyword)
         .then(data => {
           return data;
@@ -37,9 +48,6 @@ export const MapSearchComponent = {
     }
 
     searchGps() {
-      // let x = '20';
-      // x = parseFloat(x);
-      // console.log(x);
       const gps = this.search.keyword;
       let gpsArray = {};
 
@@ -75,6 +83,10 @@ export const MapSearchComponent = {
           });
         }
       }
+    }
+
+    onSearchChange() {
+      this.search.keyword = '';
     }
 
     searchMap(selected) {

@@ -33,6 +33,8 @@
       <div class="panel panel-default">
         <div class="panel-heading">User logs</div>
         <div class="panel-body">
+          <input type="search" placeholder="Search ..." ng-model="$ctrl.logFilter">
+          <br /><br />
           <table class="table">
             <thead>
               <tr>
@@ -40,7 +42,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="log in $ctrl.logs.slice(($ctrl.currentPage - 1) * $ctrl.itemPerPage, (($ctrl.currentPage) * $ctrl.itemPerPage))">
+              <tr ng-repeat="log in $ctrl.logs.slice(($ctrl.currentPage - 1) * $ctrl.itemPerPage, (($ctrl.currentPage) * $ctrl.itemPerPage)) | filter: $ctrl.logFilter">
                 <td>[{{ log.date }}] - {{ log.log_message }} by `{{ log.username }}`</td>
               </tr>
             </tbody>

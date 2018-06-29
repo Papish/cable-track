@@ -3,20 +3,32 @@
     novalidate 
     ng-submit="$ctrl.searchGps()"
   >
+    <select ng-model="$ctrl.activeSearch" ng-change="$ctrl.onSearchChange($ctrl.activeSearch)">
+      <option
+        ng-repeat="x in $ctrl.searchTypes"
+        ng-value="x.id"
+      >{{x.name}}</option>
+    </select>
     <input type="text"
+      ng-show="$ctrl.activeSearch === 0"
+      id="google-search"
+      class="map-search-box"
+      placeholder="" 
+    />
+    <input type="text"
+      ng-show="$ctrl.activeSearch === 1"
       ng-model="$ctrl.search.keyword"
-      ng-model-options="{debounce: 150}"
+      ng-model-options="{debounce: 500}"
       uib-typeahead="x.message for x in $ctrl.search($viewValue)" 
       typeahead-loading="loadingLocations" 
       typeahead-no-results="noResults"
       typeahead-on-select="$ctrl.searchMap($item)"
       class="map-search-box"
       autocomplete="on" 
-    ><button type="submit"><i class="fa fa-search"></i></button>
-    <!-- <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i> -->
-    <!-- <div ng-show="noResults">
+    /><button type="submit"><i class="fa fa-search"></i></button>
+    <!-- <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+    <div ng-show="noResults">
       No Results Found
     </div> -->
-
   </form>
 </div>

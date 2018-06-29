@@ -12,10 +12,11 @@ export const MapMarkerComponent = {
     lng: '<',
     infoWindow: '<',
     type: '<',
-    draggable: '<'
+    draggable: '<',
+    pointId: '<'
   },
   controller: class MapMarkerComponent {
-    constructor($element, $compile, $scope, MapService, MapMarkerService, $state) {
+    constructor($element, $compile, $scope, MapService, MapMarkerService, $state, $rootScope) {
       'ngInject';
 
       this.$element = $element;
@@ -27,6 +28,7 @@ export const MapMarkerComponent = {
 
       this.MapMarkerService = MapMarkerService;
       this.$state = $state;
+      this.$rootScope = $rootScope;
     }
 
     $onInit() {
@@ -124,6 +126,15 @@ export const MapMarkerComponent = {
       }, {
         passive: true
       });
+
+      if (angular.isDefined(this.pointId)) {
+        this.$rootScope.$on(`pointClick_${this.pointId}`, () => {
+          this.MapService.openInfoWindow({
+            marker: this.marker,
+            content: this.getTemp(this.$element.html())
+          });
+        });
+      }
     }
 
     optInfoWindow() {

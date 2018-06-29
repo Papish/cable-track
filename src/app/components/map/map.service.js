@@ -1,4 +1,4 @@
-/* global OverlappingMarkerSpiderfier */
+/* global OverlappingMarkerSpiderfier, MeasureTool */
 export default class MapService {
 
   /** @ngInject */
@@ -80,6 +80,9 @@ export default class MapService {
         this.infoWindow.close();
       }
     });
+
+    // Measurement tool
+    const measureTool = new MeasureTool(this.map); // eslint-disable-line
   }
 
   getMap() {
@@ -100,13 +103,9 @@ export default class MapService {
     this.infoWindow.open(this.map, param.marker);
   }
 
-  locationWiseSearch(param) {
-    if (!param.search) {
-      return;
-    }
-
-    const searchBox = new google.maps.places.SearchBox(param.search);
-    // this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(param.search);
+  locationWiseSearch(input) {
+    const searchBox = new google.maps.places.SearchBox(input);
+    // this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
     // Bias the SearchBox results towards current map's viewport.
     this.map.addListener('bounds_changed', () => {
@@ -137,6 +136,9 @@ export default class MapService {
       });
 
       this.map.fitBounds(bounds);
+      this.map.setOptions({
+        zoom: 14
+      });
     });
   }
 

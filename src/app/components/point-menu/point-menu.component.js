@@ -32,6 +32,7 @@ export const PointMenuComponent = {
       });
     }
     selected(point) {
+      this.$rootScope.$broadcast('pointClick_' + point.id);
       this.$state.go('maps.dynamic', {
         center: point.latitude + ',' + point.longitude,
         dc: false // dc: dynamic center from config

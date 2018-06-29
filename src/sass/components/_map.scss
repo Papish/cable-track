@@ -71,9 +71,20 @@ div.toast-title {
     box-shadow: 0px 1px 2px 0px rgba(110,102,110,1);
 }
 
+.search-map select {
+    position: absolute;
+    left: 5px;
+    top: 9px;
+    width: 22%;
+    border: none;
+    outline: none;
+}
+
 .search-map input {
+    float: left;
     width: 84%;
     padding: 8px 7px;
+    padding-left: 125px;
     border: none;
     border-radius: 2px;
     outline: none;
